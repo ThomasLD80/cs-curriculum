@@ -8,8 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class ForeignObject : MonoBehaviour
 {
-    private int health;
-    private int coinCount;
+    public int health;
+    public int coinCount;
+    
     private bool iFrames;
     private float iFrameTimer;
     // Start is called before the first frame update
@@ -30,7 +31,7 @@ public class ForeignObject : MonoBehaviour
             if (iFrameTimer <= 0f)
             {
                 iFrames = false;
-                iFrameTimer = 1.5f;
+                iFrameTimer = 0.5f;
             }
         }
     }
@@ -47,7 +48,8 @@ public class ForeignObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            
+            other.gameObject.SetActive(false);
+            coinCount += 1;
         }
     }
 
@@ -59,7 +61,7 @@ public class ForeignObject : MonoBehaviour
         health = 5;
         coinCount = 0;
         iFrames = false;
-        iFrameTimer = 1.5f;
+        iFrameTimer = 0.5f;
     }
 
     void ChangeHealth(int amount)
