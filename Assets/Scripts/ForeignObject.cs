@@ -8,18 +8,16 @@ using UnityEngine.SceneManagement;
 
 public class ForeignObject : MonoBehaviour
 {
-    public int health;
-    public int coinCount;
+    HUD hud;
     
     private bool iFrames;
     private float iFrameTimer;
     // Start is called before the first frame update
     void Start()
     {
-        health = 5;
-        coinCount = 0;
+        hud = GameObject.FindObjectOfType<HUD>();
         iFrames = false;
-        iFrameTimer = 1.5f;
+        iFrameTimer = 0.5f;
     }
 
     // Update is called once per frame
@@ -49,7 +47,7 @@ public class ForeignObject : MonoBehaviour
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
-            coinCount += 1;
+            hud.coinCount += 1;
         }
     }
 
@@ -58,8 +56,8 @@ public class ForeignObject : MonoBehaviour
     void Death()
     {
         SceneManager.LoadScene("Start");
-        health = 5;
-        coinCount = 0;
+        hud.health = 5;
+        hud.coinCount = 0;
         iFrames = false;
         iFrameTimer = 0.5f;
     }
@@ -69,8 +67,8 @@ public class ForeignObject : MonoBehaviour
         if (!iFrames)
         {
             iFrames = true;
-            health += amount;
-            if (health < 1)
+            hud.health += amount;
+            if (hud.health < 1)
             {
                 Death();
             }
