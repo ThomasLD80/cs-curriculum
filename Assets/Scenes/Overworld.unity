@@ -84895,7 +84895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbfbe58bdc0294697bff6e46842a9bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Overworld: 1
 --- !u!114 &1750497390
 MonoBehaviour:
   m_ObjectHideFlags: 0
