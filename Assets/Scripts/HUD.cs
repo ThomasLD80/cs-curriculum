@@ -11,6 +11,8 @@ public class HUD : MonoBehaviour
     
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI coinText;
+
+    public List<GameObject> destroyedObjects;
     // Awake is called before start
     void Awake()
     {

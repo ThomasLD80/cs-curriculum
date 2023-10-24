@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -46,6 +47,7 @@ public class ForeignObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
+            hud.destroyedObjects.Append(other.gameObject);
             other.gameObject.SetActive(false);
             hud.coinCount += 1;
         }
