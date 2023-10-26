@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI coinText;
 
-    public List<GameObject> destroyedObjects;
+    public List<GameObject> destroyedObjects = new List<GameObject>();
     // Awake is called before start
     void Awake()
     {
