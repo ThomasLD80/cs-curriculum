@@ -47,7 +47,8 @@ public class ForeignObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            hud.destroyedObjects.Append(other.gameObject);
+            hud.destroyedObjects.Add(other.gameObject.GetInstanceID());
+            print(hud.destroyedObjects);
             other.gameObject.SetActive(false);
             hud.coinCount += 1;
         }

@@ -20,6 +20,7 @@ public class BlueFireball : MonoBehaviour
     {
         Vector3 targetDir = target.position - transform.position;
         angleBetween = Vector3.Angle(transform.forward, targetDir);
+        transform.Rotate(0f, 0f, angleBetween);
         transform.forward = new Vector3(moveSpeed,0f,0f);
     }
 }

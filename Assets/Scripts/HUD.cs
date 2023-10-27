@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI coinText;
 
-    public List<GameObject> destroyedObjects = new List<GameObject>();
+    public List<int> destroyedObjects = new List<int>();
     // Awake is called before start
     void Awake()
     {
@@ -26,6 +26,7 @@ public class HUD : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -2,23 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class DeactivateObjects : MonoBehaviour
 {
     HUD hud;
-
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
+    public static DeactivateObjects deactObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach (GameObject thing in hud.destroyedObjects)
+        List<GameObject> objectsInScene = new List<GameObject>();
+
+        foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[])
         {
-            thing.gameObject.SetActive(false);
+            if (EditorUtility.IsPersistent(go.transform.root.gameObject) )
+                objectsInScene.Add(go);
         }
+
+        print(objectsInScene.Count);
     }
 
     // Update is called once per frame
