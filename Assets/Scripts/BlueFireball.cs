@@ -38,10 +38,10 @@ public class BlueFireball : MonoBehaviour
         //    transform.position.z
         //    );
         
-        transform.Translate(new Vector3((moveSpeed * Time.deltaTime),
-            (moveSpeed * Time.deltaTime) - 2f,
-            0f
-            ));
+        //transform.Translate(new Vector3((moveSpeed * Time.deltaTime),
+        //    (moveSpeed * Time.deltaTime) - 2f,
+        //    0f
+        //    ));
         
         //fireball_Rigidbody.velocity = transform.forward * moveSpeed * Time.deltaTime;
     }
