@@ -7,6 +7,11 @@ public class TurretFire : MonoBehaviour
 {
     public GameObject fireball;
     public Transform target;
+
+    private float targetPositionX;
+    private float targetPositionY;
+
+    private float fireAngle;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +23,11 @@ public class TurretFire : MonoBehaviour
     {
         if (target != null)
         {
-            Instantiate(fireball, transform.position, transform.rotation);
+            targetPositionX = target.position.x;
+            targetPositionY = target.position.y;
+            fireAngle = targetPositionY / targetPositionX;
+            
+            //Instantiate(fireball, transform.position, new Quaternion(0f, 0f, fireAngle));
         }
     }
 

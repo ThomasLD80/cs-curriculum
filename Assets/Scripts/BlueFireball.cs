@@ -14,13 +14,6 @@ public class BlueFireball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        Vector3 targetDir = turretScript.target.position - transform.position;
-        angleBetween = Vector3.Angle(transform.forward, targetDir);
-        fireball_Rigidbody = GetComponent<Rigidbody>();
-        
-        transform.Rotate(new Vector3(0f, 0f, angleBetween) * Time.deltaTime * moveSpeed, Space.World);
-
         //Vector3 direction = turretScript.target.position - transform.position;
         //float angle = Mathf.Atan2(direction.y, direction.x);
         //Vector3 newLocation = transform.position + direction.normalized * Time.deltaTime;
@@ -30,6 +23,12 @@ public class BlueFireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 targetDir = turretScript.target.position - transform.position;
+        angleBetween = Vector3.Angle(transform.forward, targetDir);
+        fireball_Rigidbody = GetComponent<Rigidbody>();
+        
+        transform.Rotate(new Vector3(0f, 0f, angleBetween) * Time.deltaTime * moveSpeed, Space.World);
+        
         //fireball_Rigidbody.AddForce(new Vector3(moveSpeed, 0f, 0f) * moveSpeed);
         
         //fireball_Rigidbody.transform.position = new Vector3(
