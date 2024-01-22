@@ -28,7 +28,12 @@ public class TurretFire : MonoBehaviour
             fireAngle = targetY / targetX;
             
             Instantiate(fireball, transform.position, new Quaternion(0f, 0f, fireAngle, 0f));
+            
+            Debug.Log(targetX);
+            Debug.Log(targetY);
         }
+        
+        Debug.Log(target);
     }
 
     void OnTriggerEnter2D(Collider2D other)

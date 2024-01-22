@@ -23,11 +23,12 @@ public class BlueFireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetDir = turretScript.target.position - transform.position;
-        angleBetween = Vector3.Angle(transform.forward, targetDir);
-        fireball_Rigidbody = GetComponent<Rigidbody>();
+        //Vector3 targetDir = turretScript.target.position - transform.position;
+        //angleBetween = Vector3.Angle(transform.forward, targetDir);
+        //fireball_Rigidbody = GetComponent<Rigidbody>();
         
-        transform.Rotate(new Vector3(0f, 0f, angleBetween) * Time.deltaTime * moveSpeed, Space.World);
+        //transform.Rotate(new Vector3(0f, 0f, angleBetween) * Time.deltaTime * moveSpeed, Space.World);
+        
         
         //fireball_Rigidbody.AddForce(new Vector3(moveSpeed, 0f, 0f) * moveSpeed);
         
@@ -37,11 +38,15 @@ public class BlueFireball : MonoBehaviour
         //    transform.position.z
         //    );
         
+        
         //transform.Translate(new Vector3((moveSpeed * Time.deltaTime),
         //    (moveSpeed * Time.deltaTime) - 2f,
         //    0f
         //    ));
         
         //fireball_Rigidbody.velocity = transform.forward * moveSpeed * Time.deltaTime;
+
+
+        transform.position = transform.position + transform.forward;
     }
 }
