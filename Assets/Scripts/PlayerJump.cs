@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    public bool onGround;
+    public bool onGroundLeft;
+    public bool onGroundRight;
 
     private float rayLength;
 
@@ -13,6 +14,8 @@ public class PlayerJump : MonoBehaviour
     private float jumpSpeed;
 
     public LayerMask groundLayer;
+
+    private float offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,16 +23,20 @@ public class PlayerJump : MonoBehaviour
 
         m_Rigidbody = GetComponent<Rigidbody2D>();
         jumpSpeed = 5f;
+
+        offset = 0.375f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector2.down, Color.green);
+        Debug.DrawRay(transform.position + new Vector3(-offset, 0f, 0f), Vector2.down, Color.red);
+        Debug.DrawRay(transform.position + new Vector3(offset, 0f, 0f), Vector2.down, Color.green);
         
-        onGround = Physics2D.Raycast(transform.position, Vector2.down, rayLength, groundLayer);
-
-        if (onGround)
+        onGroundLeft = Physics2D.Raycast(transform.position + new Vector3(-offset, 0f, 0f), Vector2.down, rayLength, groundLayer);
+        onGroundRight = Physics2D.Raycast(transform.position + new Vector3(offset, 0f, 0f), Vector2.down, rayLength, groundLayer);
+        
+        if (onGroundLeft || onGroundRight)
         {
             //Debug.Log("Hit the Ground");
 
